@@ -139,6 +139,18 @@ catsButton.addEventListener("click", () => {
   const catFilterL = document.createElement("p");
   catFilterL.textContent = catsFiltered;
   catsContainer.appendChild(catFilterL);
+
+  const catString = document.createElement("p")
+  for (let i = 0; i < cats.length; i++) {
+    if (i === cats.length - 1) {
+      catString.textContent += ` and ${cats[i]}`
+    } else {
+      catString.textContent += ` ${cats[i]},`
+    }
+  }
+  catsContainer.appendChild(catString)
+
+
 });
 
 function toUpper(eachCatName) {
@@ -157,6 +169,9 @@ mathsButton.addEventListener("click", () => {
   }
   mathsContainer.insertAdjacentHTML('beforeend', 'Finished!');
 });
+
+
+
 // functions
 
 const filterCatsAsAfunction = cats.filter((cat) => cat.startsWith("L"));
