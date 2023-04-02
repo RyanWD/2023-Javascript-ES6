@@ -15,6 +15,7 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
 - nuxt-icon,
 - vue-toastification
 - vue3-easy-data-table
+- dayjs
 
 ## Setup
 

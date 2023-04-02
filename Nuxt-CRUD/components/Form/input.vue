@@ -10,6 +10,11 @@
     </div>
 </div>
 </template>
+<script>
+    export default {
+        inheritAttrs: false,
+    }
+</script>
 
 <script setup>
 import { useField } from "vee-validate";

@@ -2,8 +2,8 @@
 	<div class="min-h-screen">
 		<main class="max-w-5xl px-5 mx-auto pt-7 lg:px-0">
 			<!-- Page title -->
-			<h1 class="text-2xl font-medium">Books</h1>
-			<p class="mt-2 text-sm text-gray-500">Manage your books here</p>
+			<h1 class="text-2xl font-medium">Authors</h1>
+			<p class="mt-2 text-sm text-gray-500">Manage your authors here</p>
 
 			<div
 				class="flex flex-col items-center justify-between mt-5 space-y-3 md:space-y-0 md:flex-row"
@@ -13,7 +13,7 @@
 						<Icon name="ep:search" size="24" class="text-gray-400" />
 					</span>
 					<input
-						placeholder="Search books..."
+						placeholder="Search author..."
 						v-model="search"
 						type="search"
 						name="search"
@@ -22,37 +22,34 @@
 					/>
 				</div>
 				<button
-					@click="bookModal.openModal()"
+					@click="authorModal.openModal()"
 					class="w-full py-3.5 md:py-2.5 md:w-auto btn shrink-0"
 				>
-					Add Book
+					Add Author
 				</button>
 			</div>
 
 			<div class="relative mt-5 border border-gray-100 rounded-lg">
 				<ClientOnly>
 					<EasyDataTable
+						empty-message="No Author Found"
 						:search-value="search"
-						empty-message="No Book Found"
 						theme-color="#f97316"
 						table-class-name="eztble"
 						:headers="headers"
-						:items="bookStore.books"
+						:items="authorStore.authors"
 					>
-						<!-- Show title with custom styles -->
-						<template #item-title="{ title }">
-							<span class="font-semibold">{{ title }}</span>
-						</template>
-						<template #item-published="{ published }">
-							<span>{{ dayjs(published).format("MMM DD, YYYY") }}</span>
+						<!-- Show authors  -->
+						<template #item-name="{ name }">
+							<span class="font-semibold">{{ name }}</span>
 						</template>
 						<!-- Action items for table -->
-						<template #item-actions="book">
+						<template #item-actions="author">
 							<div class="flex space-x-4 text-gray-500">
-								<button @click="bookModal.openModal(book)">
+								<button @click="authorModal.openModal(author)">
 									<Icon size="18" name="fluent:pen-24-regular" />
 								</button>
-								<button @click="removeBook(book)">
+								<button @click="removeAuthor(author)">
 									<Icon size="18" name="fluent:delete-24-regular" />
 								</button>
 							</div>
@@ -61,38 +58,35 @@
 				</ClientOnly>
 			</div>
 		</main>
-		<!-- Book modal comp -->
-		<BookModal ref="bookModal" />
+		<!-- Author modal comp -->
+		<AuthorModal ref="authorModal" />
 	</div>
 </template>
 
 <script setup lang="ts">
 	import { Header } from "vue3-easy-data-table";
-	import dayjs from "dayjs";
 
-	// Book store from pinia
-	const bookStore = useBookStore();
-	// Get books with async data
-	await useAsyncData(() => bookStore.getAll(), {
+	// Author store
+	const authorStore = useAuthorStore();
+
+	// get data on page load
+	useAsyncData(async () => await authorStore.getAll(), {
 		initialCache: false,
 	});
 
-	// Modal refence - used to open modal
-	const bookModal = ref();
-	//Search for record in table
+	// Modal ref
+	const authorModal = ref();
+	//Search for author in table
 	const search = ref("");
 
-	// headers for the table
+	// Method used to remove an author
+	const removeAuthor = async (author) => {
+		await authorStore.remove(author._id);
+	};
+
+	// Table headers
 	const headers: Header[] = [
-		{ text: "Title", value: "title", sortable: true, width: 200 },
-		{ text: "Published", value: "published", width: 150 },
-		{ text: "ISBN", value: "isbn", sortable: true },
-		{ text: "Page Count", value: "pageCount", sortable: true, width: 200 },
+		{ text: "Author Name", value: "name", sortable: true },
 		{ text: "Actions", value: "actions", width: 100 },
 	];
-
-	// Method used to remove a book
-	const removeBook = async (book) => {
-		await bookStore.remove(book._id);
-	};
 </script>
