@@ -15,6 +15,7 @@
 const links = ref([
     { name: 'home', link: '/' },
     { name: 'events', link: '/events' },
+    { name: 'custom', link: '/custom' },
 ])
 
 </script>
