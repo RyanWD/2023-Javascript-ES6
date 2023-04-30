@@ -3,6 +3,8 @@
 const client = useSupabaseClient()
 const logout = async () => {
     const { error } = await client.auth.signOut()
+    console.log('error', error)
+    navigateTo('/notes')
 }
 </script>
 

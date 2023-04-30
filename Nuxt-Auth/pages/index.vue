@@ -45,6 +45,9 @@ onMounted(() => {
             <span v-if="isSignUp"> Have an account? Log in instead</span>
             <span v-else> Create a new account </span>
         </button>
+        <NuxtLink to="/password" class="w-full mt-4 text-sm text-center underline text-slate-300">
+            Forgotten password?
+        </NuxtLink>
     </div>
 </template>
 
