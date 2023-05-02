@@ -16,8 +16,11 @@ const client = useSupabaseClient()
 
  const sendRecoveryEmail = async () => {
     const { data, error } = await client.auth.resetPasswordForEmail(email.value, {
-        redirectTo: '/updatePassword',
+        
+        redirectTo: 'http://localhost:3000/password/updatepassword',
     })
+    console.log(data)
+    console.log(error)
  }
   
 </script>

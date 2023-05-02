@@ -33,21 +33,45 @@ onMounted(() => {
 
 <template>
     <div>
-        <form @submit.prevent="() => (isSignUp ? signUp() : login())" class="flex flex-col gap-2">
-            <input type="email" placeholder="Email" v-model="email" class="p-2 bg-gray-600 rounded">
-            <input type="password" placeholder="Password" v-model="password" class="p-2 bg-gray-600 rounded">
-            <button type="submit" class="p-2 text-white bg-green-500 rounded">
-                <span v-if="isSignUp"> Sign up </span>
-                <span v-else> Log in </span>
-            </button>
-        </form>
-        <button @click="isSignUp = !isSignUp" class="w-full mt-8 text-sm text-center underline text-slate-300">
+        <div class="flex flex-col items-center justify-center min-h-minusHeader bg-gray-100">
+            <div class="w-full max-w-md">
+                <div class="mb-4 text-xl font-bold text-center">{{ isSignUp ? 'Sign up' : 'Login' }}</div>
+                <form @submit.prevent="() => (isSignUp ? signUp() : login())"
+                    class="px-8 pt-6 pb-8 mb-4 bg-white rounded shadow-lg">
+                    <div class="mb-4">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                            Email
+                        </label>
+                        <input name="email" type="email" placeholder="Email" v-model="email">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+                            Password
+                        </label>
+                        <input name="password" type="password" placeholder="Password" v-model="password">
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <button type="submit" class="btn">
+                            <span v-if="isSignUp"> Sign up </span>
+                            <span v-else> Log in </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <button @click="isSignUp = !isSignUp" class="w-full mt-8 text-sm text-center underline text-slate-500">
             <span v-if="isSignUp"> Have an account? Log in instead</span>
             <span v-else> Create a new account </span>
         </button>
-        <NuxtLink to="/password" class="w-full mt-4 text-sm text-center underline text-slate-300">
+        <NuxtLink to="/password" class="w-full text-sm text-center underline text-slate-500">
             Forgotten password?
         </NuxtLink>
+        </div>
+
+
+
+    
     </div>
 </template>
 

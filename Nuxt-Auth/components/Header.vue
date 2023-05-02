@@ -6,19 +6,20 @@ const logout = async () => {
     console.log('error', error)
     navigateTo('/notes')
 }
+
+const user = useSupabaseUser()
+
 </script>
 
 <template>
-    <div>
-        <ul class="flex flex-auto">
-            <li>Testing Auth</li>
-            <li>
-                <button @click="logout()">Logout</button>
-
-            </li>
-
-        </ul>
-    </div>
+    <header class="py-4 bg-gray-900">
+        <div class="container flex items-center justify-between mx-auto">
+           <NuxtLink class="text-lg font-bold text-white" to="/">My Nuxt Supabase app</NuxtLink>
+            <button v-if="user" class="w-auto px-4 py-2 font-semibold text-white bg-red-600 rounded hover:bg-red-700" @click="logout()">
+                Signout
+            </button>
+        </div>
+    </header>
 </template>
 
 
