@@ -1,0 +1,59 @@
+/* Page container */
+
+.myContainer {
+  max-width: 550px;
+  margin: 2rem auto;
+}
+
+/* Nav */
+
+.myNav {
+  background-color: #21222a;
+  padding: 2rem;
+}
+
+.myNav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+.myNav ul > li {
+  text-decoration: none;
+  padding: 1rem;
+  color: #deebf8;
+}
+
+.myNav img {
+  width: 40px;
+}
+
+.myNav h2 {
+  color: #61dafb;
+}
+
+/* Main content */
+
+.myMain {
+  color: #fff;
+  background-color: #282d35;
+  padding: 2rem;
+}
+
+.myMain h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.myMain ul > li::marker {
+  color: #61dafb;
+  font-size: 1.5em;
+}
+
+/* Footer */
+
+.myFooter {
+  background-color: #deebf8;
+  padding: 1rem;
+  text-align: center;
+}
