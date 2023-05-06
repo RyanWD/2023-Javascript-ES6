@@ -38,6 +38,10 @@
   color: #fff;
   background-color: #282d35;
   padding: 2rem;
+  background-image: url(./reactjs-icon\ 2.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: auto 80%;
 }
 
 .myMain h1 {
