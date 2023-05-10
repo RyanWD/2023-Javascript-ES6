@@ -2,6 +2,7 @@
 
 .App {
     max-width: 550px;
+    border: 1px solid lightgray;
     margin: 2rem auto;
     font-family: 'Poppins', 'Courier New', Courier, monospace;
 }
@@ -16,13 +17,18 @@
     height: 1.5rem;
 }
 
-.main--header {
+.main--header, .main--cards {
     padding: 1.5rem 1.8rem;
 }
 
-.main--header > img {
-    width: 100%;
+.main--header > .img--container {
+   text-align: center;
+    
+}
+.main--header img {
+    width: 395px;
     height: auto;
+    
 }
 
 .main--header > h1 {
@@ -33,4 +39,92 @@
 .main--header > p {
     font-weight: 300;
     font-style: normal;
+    margin-bottom: 0;
 }
+
+/* .main--cards {
+    position: relative;
+    padding-right: 0;
+    overflow-x: hidden;
+    
+}
+
+
+.main--cards img{
+    width: 176px;
+    height: 235px;
+    padding-right: 26px;
+    object-fit: cover;
+    float: left;
+}
+
+
+.main--cards img:last-child {
+    width: auto;
+    height: 235px;
+    position: absolute;
+   padding: 0;
+   overflow: hidden;
+   border-radius: 9px;
+
+} */
+
+
+.main--card {
+    width: 176px;
+  }
+  .main--image-container {
+    position: relative;
+    
+  }
+  .main--image-container img {
+    width: 100%;
+  }
+  .main--image-status {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    background-color: #fff;
+    padding: 3px 5px 2px;
+    border-radius: 0.3rem;
+   
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+  
+  }
+  
+  
+  .main--info-container h6{
+    margin: 0;
+  }
+  .main--info-container img{
+  width: 14px;
+  height: 14px;
+  }
+  .main--info-rating {
+    display: flex;
+    font-weight: 300;
+    
+  }
+  .main--info-rating h6{
+    margin-left: 3px;
+    color: #222;
+  }
+  .main--info-rating span {
+  color: #918E9B;
+  }
+  .main--info-container h6:nth-of-type(1) {
+    margin: 5px 0;
+  }
+  
+  .main--info-description {
+    color: #222;
+    font-weight: 300;
+  }
+  
+  .main--info-container span{
+    color: #222;
+    font-weight: 600;
+  }
