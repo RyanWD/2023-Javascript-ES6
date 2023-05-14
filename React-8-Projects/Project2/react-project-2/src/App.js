@@ -19,24 +19,28 @@ function App() {
       name: "Mr. Whiskerson",
       phone: "(212) 555-1234",
       email: "mr.whiskaz@catnap.meow",
+      isLive: true,
     },
     {
       image: Cat2,
       name: "Fluffykins",
       phone: "(212) 555-4444",
       email: "mr.fluffy@catnap.meow",
+      isLive: true,
     },
     {
       image: Cat3,
       name: "ZoomZoom",
       phone: "(212) 555-1111",
       email: "mr.zzomy@catnap.meow",
+      isLive: true,
     },
     {
       image: Cat4,
       name: "Fatboy",
       phone: "(212) 555-3333",
       email: "mr.FatCat@catnap.meow",
+      isLive: false,
     },
   ];
 
@@ -46,6 +50,7 @@ function App() {
       name={contact.name}
       phone={contact.phone}
       email={contact.email}
+      isLive={contact.isLive}
       key={contact.name}
     />
   ));

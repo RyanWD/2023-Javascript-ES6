@@ -140,17 +140,15 @@ catsButton.addEventListener("click", () => {
   catFilterL.textContent = catsFiltered;
   catsContainer.appendChild(catFilterL);
 
-  const catString = document.createElement("p")
+  const catString = document.createElement("p");
   for (let i = 0; i < cats.length; i++) {
     if (i === cats.length - 1) {
-      catString.textContent += ` and ${cats[i]}`
+      catString.textContent += ` and ${cats[i]}`;
     } else {
-      catString.textContent += ` ${cats[i]},`
+      catString.textContent += ` ${cats[i]},`;
     }
   }
-  catsContainer.appendChild(catString)
-
-
+  catsContainer.appendChild(catString);
 });
 
 function toUpper(eachCatName) {
@@ -165,13 +163,38 @@ mathsButton.addEventListener("click", () => {
   // insertAdjacentHTML parses the specified text as HTML at a specified position. Just inside the element at the end
   for (let i = 1; i < 10; i++) {
     const newResult = `${i} x ${i} = ${i * i}`;
-    mathsContainer.insertAdjacentHTML('beforeend', `${newResult}<br>`);
+    mathsContainer.insertAdjacentHTML("beforeend", `${newResult}<br>`);
   }
-  mathsContainer.insertAdjacentHTML('beforeend', 'Finished!');
+  mathsContainer.insertAdjacentHTML("beforeend", "Finished!");
 });
 
+const nums = [1, 2, 3, 4, 5];
 
+const numsSqrd = nums.map((num) => num * num);
+console.log(numsSqrd);
 
+const names = ["alice", "bob", "charlie", "danielle"];
+const namesCapitalized = names.map((name) => {
+  let newName = "";
+  let split = name.split("");
+  let first = split[0].toUpperCase();
+  for (let index = 1; index < split.length; index++) {
+    const element = split[index];
+    newName += element;
+  }
+  return (first += newName);
+});
+
+const namesCapitalizedImproved = names.map((name) => {
+  return name[0].toUpperCase() + name.slice(1);
+});
+console.log(namesCapitalized);
+const pokemon = ["Bulbasaur", "Charmander", "Squirtle"];
+
+const pokemonPara = pokemon.map((poke) => {
+  return `<p>${poke}</p>`;
+});
+console.log(pokemonPara);
 // functions
 
 const filterCatsAsAfunction = cats.filter((cat) => cat.startsWith("L"));

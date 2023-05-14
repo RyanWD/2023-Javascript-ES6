@@ -14,7 +14,7 @@ export default function Card(props) {
             <h6>
               {props.rating}{" "}
               <span>
-                ({props.reviewCount})-{props.country}
+                ({props.reviewCount}) - {props.country}
               </span>
             </h6>
           </div>
