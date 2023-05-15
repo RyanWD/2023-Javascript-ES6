@@ -1,20 +1,22 @@
 import star from "../assets/star.png";
 
+
+
 export default function Card(props) {
   return (
     <div className="main--card-container">
       <div className="main--card">
         <div className="main--image-container">
-          <img src={props.img} alt="" />
+          <img src={props.coverImg} alt="" />
           <div className="main--image-status">SOLD OUT</div>
         </div>
         <div className="main--info-container">
           <div className="main--info-rating">
             <img src={star} alt="" />
             <h6>
-              {props.rating}{" "}
+              {props.stats.rating}{" "}
               <span>
-                ({props.reviewCount}) - {props.country}
+                ({props.stats.reviewCount}) - {props.country}
               </span>
             </h6>
           </div>

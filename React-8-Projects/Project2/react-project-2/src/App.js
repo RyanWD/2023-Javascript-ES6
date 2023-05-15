@@ -1,73 +1,33 @@
 import "./App.css";
+
+// Components
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import Card from "./components/Card";
-import Contacts from "./components/Contacts";
-// Card Images
-import Swimmer from "./assets/swimmer.png";
-// Contact Images
-import Cat1 from "./assets/cat1.jpg";
-import Cat2 from "./assets/cat2.jpg";
-import Cat3 from "./assets/cat3.jpg";
-import Cat4 from "./assets/cat4.jpg";
 
+// Data
+import {CardData} from "./data/CardData";
 
 function App() {
-  const contacts = [
-    {
-      image: Cat1,
-      name: "Mr. Whiskerson",
-      phone: "(212) 555-1234",
-      email: "mr.whiskaz@catnap.meow",
-      isLive: true,
-    },
-    {
-      image: Cat2,
-      name: "Fluffykins",
-      phone: "(212) 555-4444",
-      email: "mr.fluffy@catnap.meow",
-      isLive: true,
-    },
-    {
-      image: Cat3,
-      name: "ZoomZoom",
-      phone: "(212) 555-1111",
-      email: "mr.zzomy@catnap.meow",
-      isLive: true,
-    },
-    {
-      image: Cat4,
-      name: "Fatboy",
-      phone: "(212) 555-3333",
-      email: "mr.FatCat@catnap.meow",
-      isLive: false,
-    },
-  ];
-
-  const allContacts = contacts.map((contact) => (
-    <Contacts
-      image={contact.image}
-      name={contact.name}
-      phone={contact.phone}
-      email={contact.email}
-      isLive={contact.isLive}
-      key={contact.name}
+  const allCards = CardData.map((card) => (
+    <Card 
+    id={card.id} 
+    title={card.title} 
+    description={card.description}
+    price={card.price}
+    coverImg={card.coverImg}
+    stats={card.stats}
+    location={card.location}
+    openSpots={card.openSpots}
+    key={card.id}
     />
   ));
+
   return (
     <div className="App">
       <Nav />
       <Header />
-      <Card
-        img={Swimmer}
-        rating="5.0"
-        reviewCount={6}
-        country="United Kingdom"
-        title="Life lessons with Katie Zaferes"
-        price={136}
-      />
-       <div className="contacts">{allContacts}</div>
-      
+      <section className="main--cards-container">{allCards}</section>
     </div>
   );
 }

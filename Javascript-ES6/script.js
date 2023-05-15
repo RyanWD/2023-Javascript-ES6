@@ -185,15 +185,12 @@ const namesCapitalized = names.map((name) => {
   return (first += newName);
 });
 
-const namesCapitalizedImproved = names.map((name) => {
-  return name[0].toUpperCase() + name.slice(1);
-});
+const namesCapitalizedImproved = names.map(name => name[0].toUpperCase() + name.slice(1));
 console.log(namesCapitalized);
+
 const pokemon = ["Bulbasaur", "Charmander", "Squirtle"];
 
-const pokemonPara = pokemon.map((poke) => {
-  return `<p>${poke}</p>`;
-});
+const pokemonPara = pokemon.map(poke => `<p>${poke}</p>`);
 console.log(pokemonPara);
 // functions
 
