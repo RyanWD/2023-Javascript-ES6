@@ -11,14 +11,17 @@ import {CardData} from "./data/CardData";
 function App() {
   const allCards = CardData.map((card) => (
     <Card 
-    id={card.id} 
-    title={card.title} 
-    description={card.description}
-    price={card.price}
-    coverImg={card.coverImg}
-    stats={card.stats}
-    location={card.location}
-    openSpots={card.openSpots}
+    // Shorten props by passing entire object
+    
+    // id={card.id} 
+    // title={card.title} 
+    // description={card.description}
+    // price={card.price}
+    // coverImg={card.coverImg}
+    // stats={card.stats}
+    // location={card.location}
+    // openSpots={card.openSpots}
+    item={card}
     key={card.id}
     />
   ));
