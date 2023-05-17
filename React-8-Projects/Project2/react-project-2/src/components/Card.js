@@ -1,22 +1,19 @@
 import star from "../assets/star.png";
 
-
-
 export default function Card(props) {
-  console.log(props)
-  let badgeText
+  console.log(props);
+  let badgeText;
   if (props.item.openSpots === 0) {
-    badgeText = 'SOLD OUT'
-  } else if (props.item.location === 'Online') {
-    badgeText = 'ONLINE'
+    badgeText = "SOLD OUT";
+  } else if (props.item.location === "Online") {
+    badgeText = "ONLINE";
   }
   return (
-    
     <div className="main--card-container">
       <div className="main--card">
         <div className="main--image-container">
           <img src={props.item.coverImg} alt="" />
-        {badgeText &&  <div className="main--image-status">{badgeText}</div>}
+          {badgeText && <div className="main--image-status">{badgeText}</div>}
         </div>
         <div className="main--info-container">
           <div className="main--info-rating">
