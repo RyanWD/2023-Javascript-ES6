@@ -23,13 +23,13 @@ export const Destinations = [
     },
     {
         id: 3,
-        country: 'Japan',
+        country: 'Norway',
         mapsLink: 'https://placeholderurl.com',
-        location: 'Mount Fuji',
-        dateFrom: '12 Jan 2023',
-        dateTo: '24 Jan 2023',
-        description: 'Japan’s Mt. Fuji is an active volcano about 100 kilometers southwest of Tokyo. Commonly called “Fuji-san,” it’s the country’s tallest peak, at 3,776 meters. A pilgrimage site for centuries, it’s considered one of Japan’s 3 sacred mountains, and summit hikes remain a popular activity. Its iconic profile is the subject of numerous works of art, notably Edo Period prints by Hokusai and Hiroshige.',
-        image: 'Fuji.png'
+        location: 'Geirangerfjord',
+        dateFrom: '01 Oct 2023',
+        dateTo: '18 Nov 2023',
+        description: 'The Geiranger Fjord is a fjord in the Sunnmøre region of Møre og Romsdal county, Norway. It is located entirely in the Stranda Municipality. It is a 15-kilometre-long branch off the Sunnylvsfjorden, which is a branch off the Storfjorden',
+        image: 'Geirangerfjord.png'
 
     },
 ]
