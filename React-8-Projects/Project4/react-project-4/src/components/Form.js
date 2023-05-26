@@ -1,32 +1,35 @@
-import {memesData} from '../components/MemesData'
+import { memesData } from "../components/MemesData";
+import React from "react";
 
 export default function Form() {
-  const handleClick = (event) => {
-    event.preventDefault()
-    console.log('yep')
-  }
+  // array destructuring, 1st is value passed in, 2nd is a function
 
-  const allMemes = memesData.data.memes
-  
+  const allMemes = memesData.data.memes;
+  // const memeUrl = "";
+  const [memeUrl, setMemeUrl] = React.useState("https://i.imgflip.com/30b1gx.jpg")
   const randomMeme = () => {
-    const randomNumber = Math.floor(Math.random() * allMemes.length)
-    console.log(randomNumber)
-    const {url} = allMemes[randomNumber]
-    console.log(memeUrl)
-  }
+    const randomNumber = Math.floor(Math.random() * allMemes.length);
+    setMemeUrl(prevMemeUrl => prevMemeUrl = allMemes[randomNumber].url)
+   
+  };
 
-  
   return (
     <div className="form--container">
-      <form onSubmit={handleClick}>
-        <div className="form--inputs">
+      <div className="form--inputs">
         <input type="text"></input>
         <input type="text"></input>
-        </div>
-        <button type="submit">Get a new meme image 🖼</button>
-      </form>
-      <button type="button" onClick={randomMeme}>Get a new meme image 🖼</button>
-        <img src={memeUrl ? memeUrl : 'https://i.imgflip.com/30b1gx.jpg'} width="100%" height="auto"/>
+      </div>
+    
+
+      <button type="button" onClick={randomMeme}>
+        Get a new meme image 🖼
+      </button>
+      <img
+        src={memeUrl ? memeUrl : "https://i.imgflip.com/30b1gx.jpg"}
+        width="100%"
+        height="auto"
+        alt="memePic"
+      />
     </div>
   );
 }
