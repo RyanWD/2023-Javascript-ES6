@@ -66,4 +66,6 @@ display: inline-block;
 .image--container img {
   width: 100%;
   height: auto;
+  margin-top: 1rem;
+
 }

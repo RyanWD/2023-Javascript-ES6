@@ -1,8 +1,8 @@
 
-export default function Image() {
+export default function Image({memeUrl, alt}) {
     return (
         <div className="image--container">
-           <img src="" alt="" />
+           <img src={memeUrl} alt={alt} />
         </div>
     )
 }

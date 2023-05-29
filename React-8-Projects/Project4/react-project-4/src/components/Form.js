@@ -1,15 +1,17 @@
 import { memesData } from "../components/MemesData";
+import Image from "../components/Image"
 import React from "react";
 
 export default function Form() {
   // array destructuring, 1st is value passed in, 2nd is a function
 
   const allMemes = memesData.data.memes;
-  // const memeUrl = "";
-  const [memeUrl, setMemeUrl] = React.useState("https://i.imgflip.com/30b1gx.jpg")
+  const [meme, setMeme] = React.useState("")
   const randomMeme = () => {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
-    setMemeUrl(prevMemeUrl => prevMemeUrl = allMemes[randomNumber].url)
+    // if you need access to previous state (first parameter is current state)
+    // setMemeUrl(prevMemeUrl => prevMemeUrl = allMemes[randomNumber].url)
+    setMeme(allMemes[randomNumber])
    
   };
 
@@ -24,12 +26,7 @@ export default function Form() {
       <button type="button" onClick={randomMeme}>
         Get a new meme image 🖼
       </button>
-      <img
-        src={memeUrl ? memeUrl : "https://i.imgflip.com/30b1gx.jpg"}
-        width="100%"
-        height="auto"
-        alt="memePic"
-      />
+      <Image memeUrl={meme.url} key={meme.id} alt={meme.name}/>
     </div>
   );
 }
