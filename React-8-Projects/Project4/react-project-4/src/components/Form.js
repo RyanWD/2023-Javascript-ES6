@@ -18,8 +18,8 @@ export default function Form() {
   return (
     <div className="form--container">
       <div className="form--inputs">
-        <input type="text"></input>
-        <input type="text"></input>
+        <input type="text" placeholder="Top text"></input>
+        <input type="text" placeholder="Bottom text"></input>
       </div>
     
 
