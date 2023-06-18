@@ -24,7 +24,7 @@ export default function Form() {
     
 
       <button type="button" onClick={randomMeme}>
-        Get a new meme image 🖼
+        Get a new meme image
       </button>
       <Image memeUrl={meme.url} key={meme.id} alt={meme.name}/>
     </div>
