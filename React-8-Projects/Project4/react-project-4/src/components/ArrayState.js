@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function SideTest() {
+export default function ArrayState() {
     const [thingsArray, setThingsArray] = React.useState(["Thing 1", "Thing 2"])
     
     function addItem() {
@@ -11,11 +11,11 @@ export default function SideTest() {
         })
     }
     
-    const thingsElements = thingsArray.map(thing => <p className="side--test-p" key={thing}>{thing}</p>)
+    const thingsElements = thingsArray.map(thing => <p className="array--state-p" key={thing}>{thing}</p>)
     
     return (
-        <div>
-            <button className="side--test" onClick={addItem}>Add Item</button>
+        <div className="main--container">
+            <button className="array--state" onClick={addItem}>Add Item</button>
             {thingsElements}
         </div>
     )
