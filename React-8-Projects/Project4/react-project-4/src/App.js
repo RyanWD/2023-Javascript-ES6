@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import ArrayState from './components/ArrayState'
 import ObjectState from './components/ObjectState';
+import SideChallenge from './components/SideChallenge';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Main />
       <ArrayState />
       <ObjectState />
+      <SideChallenge />
     </div>
   );
 }

@@ -110,3 +110,14 @@ p.array--state-p {
   color: gray;
   margin-block: 7px;
 }
+
+.box {
+  height: 1rem;
+  width: 1rem;
+  border: 1px solid black;
+}
+
+.boxes--layout {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,6 +1,5 @@
 import React from "react";
-import starFilled from "../assets/star-filled.png"
-import starEmpty from "../assets/star-empty.png"
+import Star from "../components/Star";
 import user from "../assets/user.png"
 
 export default function ObjectState() {
@@ -9,10 +8,8 @@ export default function ObjectState() {
     lastName: "Doe",
     phone: "+1 (719) 555-1212",
     email: "itsmyrealname@example.com",
-    isFavorite: false,
+    isFavorite: true,
   });
-
-  let starIcon = contact.isFavorite ? starFilled : starEmpty
 
   function toggleFavorite() {
     setContact(prevContact => {
@@ -31,11 +28,9 @@ export default function ObjectState() {
         <article className="card">
           <img src={user} className="card--image" />
           <div className="card--info">
-            <img
-              src={starIcon}
-              className="card--favorite"
-              onClick={toggleFavorite}
-            />
+             {/* passing data down to child components, including functions  */}
+             {/* no way to 'emit' data, so shared data must be pushed up to parent components */}
+           <Star isFilled={contact.isFavorite} handleClick={toggleFavorite}/>
             <h2 className="card--name">{contact.firstName} {contact.lastName}</h2>
             <p className="card--contact">{contact.phone}</p>
             <p className="card--contact">{contact.email}</p>
