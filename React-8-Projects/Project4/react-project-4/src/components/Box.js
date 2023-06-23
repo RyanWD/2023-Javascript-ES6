@@ -1,21 +1,17 @@
-import React from "react";
 
-export default function Box({ on }) {
-  const [box, setBox] = React.useState(on);
+export default function Box(props) {
 
   const styles = {
-    backgroundColor: box ? "#222222" : "#cccccc",
+    backgroundColor: props.on ? "#222222" : "#cccccc",
     cursor: "pointer",
   };
 
-  const switchColor = () => {
-    setBox((prevBox) => !prevBox);
-  };
+  
 
   return (
     <>
       {/* <div className="box" style={{backgroundColor: props.on && 'black'}}></div>  */}
-      <div className="box" style={styles} onClick={switchColor}></div>
+      <div className="box" style={styles} onClick={() => props.handleClick(props.id)}></div>
     </>
   );
 }
