@@ -8,9 +8,9 @@ export default function SideChallenge() {
   const switchColor = (id) => {
     setMyBoxes(prevBox => {
  // modern and sophisticated way       
-        return prevBox.map((box) => {
-          return box.id === id ? {...box, on: !box.on} : box
-        })
+      return prevBox.map((box) => {
+        return box.id === id ? {...box, on: !box.on } : box
+      })
 
  // vanilla js way of working - both work.
     //   const newBoxes = [];
