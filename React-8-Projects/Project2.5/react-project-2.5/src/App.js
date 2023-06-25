@@ -19,6 +19,8 @@ function App() {
     />
   ));
 
+  
+
   const allJokes = JokesData.map((joke) => (
     <Jokes setup={joke.setup} punchline={joke.punchline} key={joke.setup} />
   ));
