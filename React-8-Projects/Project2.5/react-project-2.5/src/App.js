@@ -1,3 +1,4 @@
+import React, {useEffect} from "react";
 // Style
 import "./App.css";
 // Components
@@ -19,18 +20,28 @@ function App() {
     />
   ));
 
-  
+  useEffect(() => {
+    addIdToObjects();
+  }, []);
 
-  const allJokes = JokesData.map((joke) => (
-    <Jokes setup={joke.setup} punchline={joke.punchline} key={joke.setup} />
-  ));
+  const [allJokes, setAllJokes] = React.useState([])
+
+  const addIdToObjects = () => {
+    const updatedData = JokesData.map((obj, index) => {
+      return { ...obj, id: index + 1 };
+    });
+    
+    setAllJokes(updatedData)
+  };
+
+  const myJokes = allJokes.map((joke, index) => (<Jokes setup={joke.setup} punchline={joke.punchline} key={index} id={joke.id}/>))
 
   return (
     <div className="App">
       <h1>Contacts component</h1>
       <div className="contacts">{allContacts}</div>
       <h1>Jokes component</h1>
-      <div className="jokes">{allJokes}</div>
+      <div className="jokes">{myJokes}</div>
     </div>
   );
 }
