@@ -28,6 +28,22 @@ export default function Form() {
    
   };
 
+  // const [firstName, setFirstName] = React.useState("")
+  const [person, setPerson] = React.useState({
+    firstName: "",
+    lastName: ""
+  })
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setPerson((prevState) => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  console.log(person)
+
   return (
     <div className="form--container">
       <div className="form--inputs">
@@ -40,6 +56,28 @@ export default function Form() {
         Get a new meme image
       </button>
       <Image memeUrl={memeObject.randomImage.url} key={memeObject.randomImage.id} alt={memeObject.randomImage.name}/>
+
+      <form action="">
+      <label>
+        First Name:
+        <input
+          type="text"
+          name="firstName"
+          value={person.firstName}
+          onChange={handleInputChange}
+        />
+      </label>
+      <br />
+      <label>
+        Last Name:
+        <input
+          type="text"
+          name="lastName"
+          value={person.lastName}
+          onChange={handleInputChange}
+        />
+      </label>
+      </form>
     </div>
   );
 }
