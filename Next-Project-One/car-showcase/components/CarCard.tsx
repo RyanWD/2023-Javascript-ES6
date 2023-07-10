@@ -4,7 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import { CarProps } from "@/types";
 import CustomButton from "./CustomButton";
-import { calculateCarRent } from "@/utils";
+import { calculateCarRent, generateCarImageUrl } from "@/utils";
+import CarDetails from "./CarDetails";
+
 
 interface CarCardProps {
   car: CarProps;
@@ -14,6 +16,7 @@ function CarCard({ car }: CarCardProps) {
   const { city_mpg, make, model, transmission, year, drive } = car;
 
   const carRent = calculateCarRent(city_mpg, year);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="car-card group">
@@ -31,7 +34,7 @@ function CarCard({ car }: CarCardProps) {
 
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src="/hero.png"
+          src={generateCarImageUrl(car)}
           alt="car model"
           fill
           priority
@@ -61,7 +64,21 @@ function CarCard({ car }: CarCardProps) {
             <p className="text-[14]">{city_mpg} MPG</p>
           </div>
         </div>
+
+        <div className="car-card__btn-container">
+          <CustomButton
+            title="View More"
+            containerStyles="w-full py-[16px] rounded-full bg-primary-blue"
+            textStyles="text-white text-[14px] leading-[17px] font-bold"
+            rightIcon="/right-arrow.svg"
+            handleClick={() => setIsOpen(true)}
+          />
+        </div>
       </div>
+
+      <CarDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} car={car}/>
+
+
     </div>
   );
 }
