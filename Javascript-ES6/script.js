@@ -196,3 +196,33 @@ console.log(pokemonPara);
 
 const filterCatsAsAfunction = cats.filter((cat) => cat.startsWith("L"));
 console.log(filterCatsAsAfunction);
+
+let myThing = [
+  {item: 'bannana', price: 55},
+  {item: 'orange', price: 5},
+  {item: 'pear', price: 33},
+  {item: 'strawberry', price: 5}
+]
+function explode(s) {
+  return s.split('').reduce((result, char) => {
+    console.log("each iteration", result)
+    return result + char
+      
+  }, '')
+}
+
+
+const reducingPrice = myThing.reduce((total, current) => total + current.price, 0)
+const reducingItems = myThing.reduce((fullSentence, current) => fullSentence + current.item + ' ')
+const reducingObjects = myThing.reduce((groupedObjects, current) => {
+  const price = current.price
+  console.log(groupedObjects[price])
+  if (groupedObjects[price] == null) groupedObjects[price] = []
+  groupedObjects[price].push(current)
+  return groupedObjects
+}, {})
+console.log(reducingPrice)
+console.log(reducingItems)
+console.log(reducingObjects)
+
+
