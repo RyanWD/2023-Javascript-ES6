@@ -149,3 +149,28 @@ textarea {
   display: block;
   
 }
+
+.form--display {
+color: #fff;
+position: relative;
+text-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+
+}
+
+.top--text {
+font-size: 3rem;
+position: absolute;
+top: 1rem; 
+left: 50%; 
+transform: translate(-50%, -50%);
+
+}
+
+.bottom--text {
+  font-size: 3rem;
+  position: absolute;
+  bottom: 1rem; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+
+}
