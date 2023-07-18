@@ -85,15 +85,20 @@ export default function Form() {
       <button type="button" onClick={handleImage}>
         Get a new meme image
       </button>
-      <div className="form--display">
-        <p className="top--text">{memeObject.topText}</p>
+      <div className="meme">
+        
         <Image
+          className="meme--image"
           memeUrl={memeObject.randomImage.url}
           key={memeObject.randomImage.id}
           alt={memeObject.randomImage.name}
         />
-        <p className="bottom--text">{memeObject.bottomText}</p>
+        <h2 className="meme--text top">{memeObject.topText}</h2>
+        <h2 className="meme--text bottom">{memeObject.bottomText}</h2>
       </div>
+
+
+      
       <form onSubmit={handleSubmit}>
         <label style={{ color: "black" }}>
           First Name:
