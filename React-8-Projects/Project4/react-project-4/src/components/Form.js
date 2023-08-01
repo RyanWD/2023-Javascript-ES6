@@ -1,20 +1,25 @@
-import { memesData } from "../components/MemesData";
 import Image from "../components/Image";
-import React from "react";
+import { useState, useEffect } from "react";
 
 export default function Form() {
+  const [memeArray, setMemeArray] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then((res) => res.json())
+      .then((data) => setMemeArray(data.data.memes));
+  }, []);
+
   // array destructuring, 1st is value passed in, 2nd is a function
 
   // const allMemes = memesData.data.memes;
-  const [memeObject, setMemeObject] = React.useState({
+  const [memeObject, setMemeObject] = useState({
     topText: "",
     bottomText: "",
     randomImage: "",
   });
 
-
-  const [memeArray, setMemeArray] = React.useState(memesData.data.memes);
-  // const [meme, setMeme] = React.useState("")
+  // const [meme, setMeme] = useState("")
   const randomMemeText = (event) => {
     // if you need access to previous state (first parameter is current state)
     // setMemeUrl(prevMemeUrl => prevMemeUrl = allMemes[randomNumber].url)
@@ -35,10 +40,10 @@ export default function Form() {
         randomImage: memeArray[randomNumber],
       };
     });
-  }
+  };
 
-  // const [firstName, setFirstName] = React.useState("")
-  const [person, setPerson] = React.useState({
+  // const [firstName, setFirstName] = useState("")
+  const [person, setPerson] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -60,8 +65,6 @@ export default function Form() {
     event.preventDefault();
     console.log(person);
   };
-
-  console.log(person);
 
   return (
     <div className="form--container">
@@ -86,7 +89,6 @@ export default function Form() {
         Get a new meme image
       </button>
       <div className="meme">
-        
         <Image
           className="meme--image"
           memeUrl={memeObject.randomImage.url}
@@ -97,8 +99,6 @@ export default function Form() {
         <h2 className="meme--text bottom">{memeObject.bottomText}</h2>
       </div>
 
-
-      
       <form onSubmit={handleSubmit}>
         <label style={{ color: "black" }}>
           First Name:
