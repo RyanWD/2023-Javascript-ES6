@@ -2,7 +2,7 @@ function Navbar(props) {
   return (
     // <nav className={`myNav d-flex justify-content-between align-items-center ${props.darkMode ? 'dark': ''}`}>
     <nav className={props.darkMode ? "dark" : ""}>
-      <img className="nav--logo_icon" src="./images/react-icon-small.png" />
+      <img className="nav--logo_icon" src="react-logo.png" />
       <h3 className="nav--logo_text">ReactFacts</h3>
 
       <div className="toggler">
@@ -16,7 +16,7 @@ function Navbar(props) {
   );
 }
 
-function MainContent() {
+function MainContent(props) {
   return (
     <main className={props.darkMode ? "dark" : ""}>
       <h1 className="main--title">Fun facts about React</h1>
@@ -41,8 +41,8 @@ function MainContent() {
 
 ReactDOM.render(
   <div className="myContainer">
-    <Navbar />
-    <MainContent />
+    <Navbar darkMode="true"/>
+    <MainContent darkMode="true"/>
     {/* <Footer /> */}
   </div>,
   document.getElementById("root")
